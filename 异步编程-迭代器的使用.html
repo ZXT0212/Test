@@ -1,0 +1,45 @@
+//异步编程实现 用户信息、文章数据、商品信息 的获取
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//异步编程实现 用户信息、文章数据、商品信息 的获取
+			function getUsers() {
+				setTimeout(() => {
+					let data="用户信息";
+					iterator.next(data);
+				},1000)
+			}
+			function getArticles() {
+				setTimeout(() => {
+					let data="文章数据";
+					iterator.next(data);
+				},1000)
+			}
+			function getGoods() {
+				setTimeout(() => {
+					let data="商品信息";
+					iterator.next(data);
+				},1000)
+			}
+			function* gen(){
+				let user=yield getUsers();
+				let articles=yield getArticles();
+				let goods=yield getGoods();
+				console.log(user);
+				console.log(articles);
+				console.log(goods);
+			}
+			let iterator=gen();
+			iterator.next();
+		</script>
+
+	</body>
+
+</html>
